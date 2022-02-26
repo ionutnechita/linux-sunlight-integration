@@ -5679,8 +5679,8 @@ linux-5.9 (5.9.0-2.3) groovy; urgency=medium
     - SAUCE: drm/i915/display: Fix null deref in intel_psr_atomic_check()
     - [Config] Update toolchain versions
     - [Config] Refresh annotations
-    - Add ubuntu-host module
-    - CONFIG_UBUNTU_HOST=m
+    - Add sunlight-host module
+    - CONFIG_SUNLIGHT_HOST=m
     - SAUCE: apparmor: drop prefixing abs root labels with '='
     - SAUCE: apparmor: disable showing the mode as part of a secid to secctx
     - SAUCE: apparmor: rename aa_sock() to aa_unix_sk()
