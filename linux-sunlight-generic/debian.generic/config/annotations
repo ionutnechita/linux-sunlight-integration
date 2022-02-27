@@ -527,10 +527,10 @@ CONFIG_ACCESSIBILITY                            flag<REVIEW>
 CONFIG_ANDROID                                  policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'n'}>
 
 # Menu: Device Drivers >> Android >> Android Binder IPC Driver
-CONFIG_ANDROID_BINDER_IPC                       policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
-CONFIG_ANDROID_BINDERFS                         policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
-CONFIG_ANDROID_BINDER_DEVICES                   policy<{'amd64': '""', 'arm64': '""', 'armhf': '""', 'ppc64el': '""'}>
-CONFIG_ANDROID_BINDER_IPC_SELFTEST              policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n'}>
+#CONFIG_ANDROID_BINDER_IPC                       policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
+#CONFIG_ANDROID_BINDERFS                         policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
+#CONFIG_ANDROID_BINDER_DEVICES                   policy<{'amd64': '""', 'arm64': '""', 'armhf': '""', 'ppc64el': '""'}>
+#CONFIG_ANDROID_BINDER_IPC_SELFTEST              policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n'}>
 
 # Menu: Device Drivers >> Auxiliary Display support
 CONFIG_CHARLCD                                  policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
@@ -812,7 +812,7 @@ CONFIG_SERIAL_EARLYCON_ARM_SEMIHOST             policy<{'arm64': 'y', 'armhf': '
 CONFIG_SERIAL_KGDB_NMI                          policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 CONFIG_SERIAL_MESON                             policy<{'arm64': 'y', 'armhf': 'y'}>
 CONFIG_SERIAL_MESON_CONSOLE                     policy<{'arm64': 'y', 'armhf': 'y'}>
-CONFIG_SERIAL_SAMSUNG                           policy<{'arm64': 'm', 'armhf': 'm'}>
+#CONFIG_SERIAL_SAMSUNG                           policy<{'arm64': 'm', 'armhf': 'm'}>
 CONFIG_SERIAL_TEGRA                             policy<{'arm64': 'm', 'armhf-generic': 'm'}>
 CONFIG_SERIAL_TEGRA_TCU                         policy<{'arm64': 'y', 'armhf-generic': 'y'}>
 CONFIG_SERIAL_TEGRA_TCU_CONSOLE                 policy<{'arm64': 'y', 'armhf-generic': 'y'}>
@@ -1002,7 +1002,7 @@ CONFIG_MESON6_TIMER                             policy<{'armhf': 'y'}>
 CONFIG_ORION_TIMER                              policy<{'armhf': 'y'}>
 CONFIG_OWL_TIMER                                policy<{'arm64': 'y', 'armhf': 'y'}>
 CONFIG_RDA_TIMER                                policy<{'armhf': 'y'}>
-CONFIG_SUN4I_TIMER                              policy<{'arm64': 'y'}>
+#CONFIG_SUN4I_TIMER                              policy<{'arm64': 'y'}>
 CONFIG_TEGRA_TIMER                              policy<{'arm64': 'y', 'armhf-generic': 'y'}>
 CONFIG_NPCM7XX_TIMER                            policy<{'armhf': 'y'}>
 CONFIG_CLKSRC_TI_32K                            policy<{'armhf': 'y'}>
@@ -1493,7 +1493,7 @@ CONFIG_DMABUF_SYSFS_STATS                       policy<{'amd64': 'n', 'arm64': '
 
 # Menu: Device Drivers >> DMABUF options >> DMA-BUF Userland Memory Heaps
 CONFIG_DMABUF_HEAPS                             policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_DMABUF_HEAPS_SYSTEM                      policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+#CONFIG_DMABUF_HEAPS_SYSTEM                      policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_DMABUF_HEAPS_CMA                         policy<{'arm64': 'y', 'armhf': 'y'}>
 
 # Menu: Device Drivers >> Dallas's 1-wire support
@@ -1945,7 +1945,7 @@ CONFIG_GPIO_MSC313                              policy<{'armhf': 'y'}>
 CONFIG_GPIO_EM                                  note<h/w not encounted>
 
 # Menu: Device Drivers >> GPIO Support >> PCI GPIO expanders
-CONFIG_GPIO_AAEON                               policy<{'amd64': 'm'}>
+#CONFIG_GPIO_AAEON                               policy<{'amd64': 'm'}>
 CONFIG_GPIO_AMD8111                             policy<{'amd64': 'm'}>
 CONFIG_GPIO_BT8XX                               policy<{'s390x': 'm'}>
 CONFIG_GPIO_MLXBF                               policy<{'arm64': 'm'}>
@@ -2839,7 +2839,7 @@ CONFIG_STM_SOURCE_FTRACE                        policy<{'amd64': 'm', 'arm64': '
 # Menu: Device Drivers >> Hardware Monitoring support
 CONFIG_HWMON                                    policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'n'}>
 CONFIG_HWMON_DEBUG_CHIP                         policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n'}>
-CONFIG_SENSORS_AAEON                            policy<{'amd64': 'm'}>
+#CONFIG_SENSORS_AAEON                            policy<{'amd64': 'm'}>
 CONFIG_SENSORS_ABITUGURU                        policy<{'amd64': 'm'}>
 CONFIG_SENSORS_ABITUGURU3                       policy<{'amd64': 'm'}>
 CONFIG_SENSORS_AD7314                           policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
@@ -4196,7 +4196,7 @@ CONFIG_USERIO                                   policy<{'amd64': 'm', 'arm64': '
 
 # Menu: Device Drivers >> LED Support
 CONFIG_NEW_LEDS                                 policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'n'}>
-CONFIG_LEDS_AAEON                               policy<{'amd64': 'm'}>
+#CONFIG_LEDS_AAEON                               policy<{'amd64': 'm'}>
 
 # Menu: Device Drivers >> LED Support >> LED Class Support
 CONFIG_LEDS_CLASS                               policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
@@ -4953,7 +4953,7 @@ CONFIG_MFD_ATC260X_I2C                          policy<{'amd64': 'm', 'arm64': '
 CONFIG_MFD_KHADAS_MCU                           policy<{'arm64': 'm', 'armhf': 'm'}>
 CONFIG_MFD_ACER_A500_EC                         policy<{'armhf-generic': 'm'}>
 CONFIG_MFD_QCOM_PM8008                          policy<{'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
-CONFIG_MFD_AAEON                                policy<{'amd64': 'm'}>
+#CONFIG_MFD_AAEON                                policy<{'amd64': 'm'}>
 CONFIG_MFD_VEXPRESS_SYSREG                      policy<{'arm64': 'y', 'armhf': 'y'}>
 CONFIG_RAVE_SP_CORE                             policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'n'}>
 CONFIG_MFD_INTEL_M10_BMC                        policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
@@ -6935,13 +6935,13 @@ CONFIG_RTW88_DEBUG                              policy<{'amd64': 'y', 'arm64': '
 CONFIG_RTW88_DEBUGFS                            policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 
 # Menu: Device Drivers >> Network device support >> Wireless LAN >> Realtek devices >> Realtek 802.11ax wireless chips support
-CONFIG_RTW89                                    policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
-CONFIG_RTW89_CORE                               policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
-CONFIG_RTW89_PCI                                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
-CONFIG_RTW89_8852AE                             policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
-CONFIG_RTW89_DEBUG                              policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
-CONFIG_RTW89_DEBUGMSG                           policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
-CONFIG_RTW89_DEBUGFS                            policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
+#CONFIG_RTW89                                    policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
+#CONFIG_RTW89_CORE                               policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
+#CONFIG_RTW89_PCI                                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
+#CONFIG_RTW89_8852AE                             policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
+#CONFIG_RTW89_DEBUG                              policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
+#CONFIG_RTW89_DEBUGMSG                           policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
+#CONFIG_RTW89_DEBUGFS                            policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 
 # Menu: Device Drivers >> Network device support >> Wireless LAN >> Realtek devices >> Realtek rtlwifi family of devices
 CONFIG_RTL_CARDS                                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
@@ -9382,7 +9382,7 @@ CONFIG_WFX                                      policy<{'amd64': 'm', 'arm64': '
 CONFIG_STAGING                                  flag<REVIEW>
 
 # Menu: Device Drivers >> Staging drivers >> Android
-CONFIG_ASHMEM                                   policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
+#CONFIG_ASHMEM                                   policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm'}>
 
 # Menu: Device Drivers >> Staging drivers >> Broadcom VideoCore support
 CONFIG_BCM_VIDEOCORE                            policy<{'arm64': 'm'}>
@@ -10432,7 +10432,7 @@ CONFIG_SBC_EPX_C3_WATCHDOG                      policy<{'amd64': 'm'}>
 CONFIG_INTEL_MEI_WDT                            policy<{'amd64': 'm'}>
 CONFIG_NI903X_WDT                               policy<{'amd64': 'm'}>
 CONFIG_NIC7018_WDT                              policy<{'amd64': 'm'}>
-CONFIG_AAEON_IWMI_WDT                           policy<{'amd64': 'm'}>
+#CONFIG_AAEON_IWMI_WDT                           policy<{'amd64': 'm'}>
 CONFIG_BCM2835_WDT                              policy<{'arm64': 'm'}>
 CONFIG_BCM7038_WDT                              policy<{'arm64': 'm'}>
 CONFIG_MEN_A21_WDT                              policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
@@ -10466,7 +10466,7 @@ CONFIG_ASUS_WIRELESS                            policy<{'amd64': 'm'}>
 CONFIG_MERAKI_MX100                             policy<{'amd64': 'm'}>
 CONFIG_EEEPC_LAPTOP                             policy<{'amd64': 'm'}>
 CONFIG_AMILO_RFKILL                             policy<{'amd64': 'm'}>
-CONFIG_DELL_UART_BACKLIGHT                      policy<{'amd64': 'm'}>
+#CONFIG_DELL_UART_BACKLIGHT                      policy<{'amd64': 'm'}>
 CONFIG_FUJITSU_LAPTOP                           policy<{'amd64': 'm'}>
 CONFIG_FUJITSU_TABLET                           policy<{'amd64': 'm'}>
 CONFIG_GPD_POCKET_FAN                           policy<{'amd64': 'm'}>
@@ -10556,7 +10556,7 @@ CONFIG_WMI_BMOF                                 policy<{'amd64': 'm'}>
 CONFIG_HUAWEI_WMI                               policy<{'amd64': 'm'}>
 CONFIG_MXM_WMI                                  policy<{'amd64': 'm'}>
 CONFIG_PEAQ_WMI                                 policy<{'amd64': 'm'}>
-CONFIG_NVIDIA_WMI_EC_BACKLIGHT			policy<{'amd64': 'm'}>
+#CONFIG_NVIDIA_WMI_EC_BACKLIGHT			policy<{'amd64': 'm'}>
 CONFIG_XIAOMI_WMI                               policy<{'amd64': 'm'}>
 CONFIG_GIGABYTE_WMI                             policy<{'amd64': 'm'}>
 CONFIG_ACER_WMI                                 policy<{'amd64': 'm'}>
@@ -11673,8 +11673,8 @@ CONFIG_DEBUG_INFO_SPLIT                         note<LP:1413646 and LP:1413664>
 CONFIG_DEBUG_INFO_BTF                           flag<REVIEW> note<Needs newer pahole for armhf>
 
 # Menu: Kernel hacking >> Compile-time checks and compiler options >> Compile the kernel with debug info >> DWARF version
-CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT       policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
-CONFIG_DEBUG_INFO_DWARF5                        policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+#CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT       policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
+#CONFIG_DEBUG_INFO_DWARF5                        policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 
 # Menu: Kernel hacking >> Debug Oops, Lockups and Hangs
 CONFIG_PANIC_ON_OOPS                            policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
@@ -13926,7 +13926,7 @@ CONFIG_LEGACY_VSYSCALL_XONLY                    flag<REVIEW>
 
 # Menu: Security options
 CONFIG_SECURITY_DMESG_RESTRICT                  policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_SECURITY_PERF_EVENTS_RESTRICT            policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+#CONFIG_SECURITY_PERF_EVENTS_RESTRICT            policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_SECURITYFS                               policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_PAGE_TABLE_ISOLATION                     policy<{'amd64': 'y'}>
 CONFIG_INTEL_TXT                                policy<{'amd64': 'y'}>
@@ -13961,7 +13961,7 @@ CONFIG_SECURITY_YAMA                            policy<{'amd64': 'y', 'arm64': '
 CONFIG_SECURITY_SAFESETID                       policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_SECURITY_LOCKDOWN_LSM                    policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_SECURITY_LOCKDOWN_LSM_EARLY              policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_LOCK_DOWN_IN_SECURE_BOOT                 policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+#CONFIG_LOCK_DOWN_IN_SECURE_BOOT                 policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_SECURITY_LANDLOCK                        policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 #
 CONFIG_SECURITY                                 mark<ENFORCED>
@@ -13970,7 +13970,7 @@ CONFIG_SECURITY_YAMA                            mark<ENFORCED>
 CONFIG_SECURITY_SAFESETID                       mark<ENFORCED> note<LP:#1845391>
 CONFIG_SECURITY_LOCKDOWN_LSM                    mark<ENFORCED>
 CONFIG_SECURITY_LOCKDOWN_LSM_EARLY              mark<ENFORCED>
-CONFIG_LOCK_DOWN_IN_SECURE_BOOT                 mark<ENFORCED>
+#CONFIG_LOCK_DOWN_IN_SECURE_BOOT                 mark<ENFORCED>
 
 # Menu: Security options >> Enable different security models >> AppArmor support
 CONFIG_SECURITY_APPARMOR                        policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
@@ -14453,10 +14453,10 @@ CONFIG_OMAP3_SDRC_AC_TIMING                     policy<{'armhf-generic': 'n'}>
 CONFIG_MACH_OMAP_GENERIC                        policy<{'armhf': 'y'}>
 
 # Menu: Ubuntu Supplied Third-Party Device Drivers
-CONFIG_HIO                                      policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
+#CONFIG_HIO                                      policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_SUNLIGHT_HOST                              policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 #
-CONFIG_HIO                                      mark<ENFORCED> note<LP:1635594>
+#CONFIG_HIO                                      mark<ENFORCED> note<LP:1635594>
 
 # Menu: Virtualization
 CONFIG_VIRTUALIZATION                           policy<{'amd64': 'y', 'arm64': 'y', 'ppc64el': 'y', 's390x': 'y'}>
