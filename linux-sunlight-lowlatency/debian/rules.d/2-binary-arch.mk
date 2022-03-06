@@ -10,7 +10,7 @@ build_cd =
 build_O  = O=$(builddir)/build-$*
 endif
 
-# Typically supplied from the arch makefile, e.g., debian.master/control.d/armhf.mk
+# Typically supplied from the arch makefile, e.g., debian.lowlatency/control.d/armhf.mk
 ifneq ($(gcc),)
 kmake += CC=$(CROSS_COMPILE)$(gcc)
 endif
@@ -29,7 +29,7 @@ $(stampdir)/stamp-prepare-tree-%: $(commonconfdir)/config.common.$(family) $(arc
 	install -d $(builddir)/build-$*
 	touch $(builddir)/build-$*/ubuntu-build
 	[ "$(do_full_source)" != 'true' ] && true || \
-		rsync -a --exclude debian --exclude debian.master --exclude $(DEBIAN) * $(builddir)/build-$*
+		rsync -a --exclude debian --exclude debian.lowlatency --exclude $(DEBIAN) * $(builddir)/build-$*
 	cat $(wordlist 1,3,$^) | sed -e 's/.*CONFIG_VERSION_SIGNATURE.*/CONFIG_VERSION_SIGNATURE="Ubuntu $(release)-$(revision)-$* $(raw_kernelversion)"/' > $(builddir)/build-$*/.config
 	[ "$(do_odm_drivers)" = 'true' ] && true || \
 		sed -ie 's/.*CONFIG_UBUNTU_ODM_DRIVERS.*/# CONFIG_UBUNTU_ODM_DRIVERS is not set/' \
@@ -385,6 +385,7 @@ ifeq ($(do_tools_cpupower),true)
 endif
 ifeq ($(do_tools_perf),true)
 	$(LN) ../../$(src_pkg_name)-tools-$(abi_release)/perf $(toolspkgdir)/usr/lib/linux-tools/$(abi_release)-$*
+	$(LN) ../../$(src_pkg_name)-tools-$(abi_release)/perf_5.15 $(toolspkgdir)/usr/lib/linux-tools/$(abi_release)-$*
 ifeq ($(do_tools_perf_jvmti),true)
 	$(LN) ../../$(src_pkg_name)-tools-$(abi_release)/libperf-jvmti.so $(toolspkgdir)/usr/lib/linux-tools/$(abi_release)-$*
 endif
@@ -580,8 +581,8 @@ binary-arch-headers: install-arch-headers
 	dh_testdir
 	dh_testroot
 ifeq ($(do_libc_dev_package),true)
-ifeq ($(filter debian.master%,$(DEBIAN)),)
-	echo "non-master branch building linux-libc-dev, aborting"
+ifeq ($(filter debian.lowlatency%,$(DEBIAN)),)
+	echo "non-5.15 branch building linux-libc-dev, aborting"
 	exit 1
 endif
 	$(call dh_all,linux-libc-dev)
@@ -680,7 +681,7 @@ $(stampdir)/stamp-prepare-perarch:
 ifeq ($(do_any_tools),true)
 	rm -rf $(builddirpa)
 	install -d $(builddirpa)
-	rsync -a --exclude debian --exclude debian.master --exclude $(DEBIAN) --exclude .git -a ./ $(builddirpa)/
+	rsync -a --exclude debian --exclude debian.lowlatency --exclude $(DEBIAN) --exclude .git -a ./ $(builddirpa)/
 endif
 	touch $@
 
@@ -760,6 +761,7 @@ ifeq ($(do_tools_cpupower),true)
 endif
 ifeq ($(do_tools_perf),true)
 	install -m755 $(builddirpa)/tools/perf/perf $(toolspkgdir)/usr/lib/$(src_pkg_name)-tools-$(abi_release)
+	install -m755 $(builddirpa)/tools/perf/perf $(toolspkgdir)/usr/lib/$(src_pkg_name)-tools-$(abi_release)/perf_5.15
 ifeq ($(do_tools_perf_jvmti),true)
 	install -m755 $(builddirpa)/tools/perf/libperf-jvmti.so $(toolspkgdir)/usr/lib/$(src_pkg_name)-tools-$(abi_release)
 endif

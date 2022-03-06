@@ -96,7 +96,7 @@ endif
 #      any other series.
 raw_uploadnum	:= $(shell echo $(revision) | sed -e 's/.*\.//')
 libc_dev_version :=
-ifeq ($(DEBIAN),debian.master)
+ifeq ($(DEBIAN),debian.lowlatency)
 ifeq ($(release),2.6.35)
 libc_dev_version := -v$(release)-$(shell expr "$(abinum)" + 1000).$(raw_uploadnum)
 endif
@@ -131,7 +131,7 @@ abidir		:= $(CURDIR)/$(DEBIAN)/__abi.current/$(arch)
 prev_abidir	:= $(CURDIR)/$(DEBIAN)/abi/$(arch)
 commonconfdir	:= $(CURDIR)/$(DEBIAN)/config
 archconfdir	:= $(CURDIR)/$(DEBIAN)/config/$(arch)
-sharedconfdir	:= $(CURDIR)/debian.master/config
+sharedconfdir	:= $(CURDIR)/debian.lowlatency/config
 builddir	:= $(CURDIR)/debian/build
 stampdir	:= $(CURDIR)/debian/stamps
 
