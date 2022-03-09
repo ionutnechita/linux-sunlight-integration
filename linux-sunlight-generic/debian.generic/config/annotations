@@ -13895,7 +13895,7 @@ CONFIG_HZ_1000                                  policy<{'amd64-generic': 'n', 'a
 
 # Menu: Processor type and features >> Timer frequency >> Architecture: arm
 CONFIG_HZ_200                                   policy<{'armhf': 'n'}>
-CONFIG_HZ_500                                   policy<{'armhf': 'n'}>
+CONFIG_HZ_500                                   policy<{'amd64': 'n', 'armhf': 'n'}>
 
 # Menu: Processor type and features >> Tune code generation >> Architecture: s390
 CONFIG_TUNE_DEFAULT                             policy<{'s390x': 'n'}>
