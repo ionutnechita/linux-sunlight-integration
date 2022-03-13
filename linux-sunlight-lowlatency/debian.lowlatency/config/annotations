@@ -13890,7 +13890,7 @@ CONFIG_HZ_300                                   policy<{'amd64': 'n', 'arm64': '
 CONFIG_HZ_1000                                  policy<{'amd64-generic': 'n', 'amd64-lowlatency': 'y', 'arm64': 'n', 'arm64-lowlatency': 'y', 'arm64-lowlatency-64k': 'y', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 
 # Menu: Processor type and features >> Timer frequency >> Architecture: arm
-CONFIG_HZ_200                                   policy<{'armhf': 'n'}>
+CONFIG_HZ_200                                   policy<{'amd64': 'n', 'armhf': 'n'}>
 CONFIG_HZ_500                                   policy<{'amd64': 'n', 'armhf': 'n'}>
 
 # Menu: Processor type and features >> Tune code generation >> Architecture: s390
