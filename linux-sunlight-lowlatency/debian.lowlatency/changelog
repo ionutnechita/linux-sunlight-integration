@@ -1,47 +1,19 @@
-linux-lowlatency (5.15.0-22.22) jammy; urgency=medium
+linux (5.15.0-32.32) 3.0; urgency=medium
 
-  * jammy/linux-lowlatency: 5.15.0-22.22 -proposed tracker (LP: #1960305)
+  * 3.0/linux: 5.15.0-32.32
 
-  * Packaging resync (LP: #1786013)
-    - [Packaging] resync getabis
-    - [Packaging] update Ubuntu.md
-    - [Packaging] update variants
-    - [Packaging] update Ubuntu.md
-    - [Packaging] update helper scripts
+ -- Ionut Nechita <ionut_n2001@yahoo.com>  Wed, 06 Apr 2022 08:15:50 +0200
 
-  * Miscellaneous Ubuntu changes
-    - [Packaging] import update.conf
-    - [packaging] remove foreign arches from control.stub.in
-    - [packaging] don't build source package
-
- -- Paolo Pisati <paolo.pisati@canonical.com>  Tue, 08 Feb 2022 15:59:44 +0100
-
-linux-lowlatency (5.15.0-21.21) jammy; urgency=medium
+linux (5.15.0-21.21) jammy; urgency=medium
 
   * jammy/linux: 5.15.0-21.21 -proposed tracker (LP: #1960211)
 
-  * jammy/linux-lowlatency: 5.15.0-21.21 -proposed tracker (LP: #1960234)
-
-  * Packaging resync (LP: #1786013)
-    - [Packaging] resync getabis
-    - [Packaging] update Ubuntu.md
-    - [Packaging] update variants
-    - [Packaging] update Ubuntu.md
-
   * Miscellaneous Ubuntu changes
     - [packaging] unhook lowlatency flavours from the build
-    - Ubuntu-5.15.0-21.21
-    - [Packaging] jammy/linux-lowlatency packaging import (derived from
-      jammy/linux)
-    - [Packaging] import update.conf
-    - [Packaging] debian: lowlatency is a suffixless backport, call it
-      backport_light
-    - [packaging] remove foreign arches from control.stub.in
-    - [packaging] don't build source package
 
- -- Paolo Pisati <paolo.pisati@canonical.com>  Mon, 07 Feb 2022 15:16:35 +0100
+ -- Paolo Pisati <paolo.pisati@canonical.com>  Mon, 07 Feb 2022 11:30:18 +0100
 
-linux-lowlatency (5.15.0-20.20) jammy; urgency=medium
+linux (5.15.0-20.20) jammy; urgency=medium
 
   * jammy/linux: 5.15.0-20.20 -proposed tracker (LP: #1959881)
 
