@@ -12993,7 +12993,7 @@ CONFIG_TCP_CONG_BBR                             policy<{'amd64': 'm', 'arm64': '
 CONFIG_TCP_CONG_BBR2                            policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 
 # Menu: Networking support >> Networking options >> TCP/IP networking >> TCP: advanced congestion control >> Default TCP congestion control
-CONFIG_DEFAULT_CUBIC                            policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
+CONFIG_DEFAULT_CUBIC                            policy<{'amd64': '-', 'arm64': '-', 'armhf': '-', 'ppc64el': '-', 's390x': '-'}>
 CONFIG_DEFAULT_RENO                             policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_DEFAULT_BBR2                             policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 
