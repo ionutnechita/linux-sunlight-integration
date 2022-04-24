@@ -11328,7 +11328,8 @@ CONFIG_SLUB                                     policy<{'amd64': 'y', 'arm64': '
 CONFIG_SLOB                                     policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 
 # Menu: General setup >> Compiler optimization level
-CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE              policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
+CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE              policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
+CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE_O3           policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_CC_OPTIMIZE_FOR_SIZE                     policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 
 # Menu: General setup >> Configure standard kernel features (expert users)
@@ -12540,6 +12541,7 @@ CONFIG_NETFILTER_XT_MATCH_POLICY                policy<{'amd64': 'm', 'arm64': '
 CONFIG_NETFILTER_XT_MATCH_PHYSDEV               policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_NETFILTER_XT_MATCH_PKTTYPE               policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_NETFILTER_XT_MATCH_QUOTA                 policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
+CONFIG_NETFILTER_XT_MATCH_QUOTA2                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_NETFILTER_XT_MATCH_RATEEST               policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_NETFILTER_XT_MATCH_REALM                 policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 CONFIG_NETFILTER_XT_MATCH_RECENT                policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
@@ -13244,6 +13246,7 @@ CONFIG_PPC_VAS                                  policy<{'ppc64el': 'y'}>
 # Menu: Power management and ACPI options >> CPU Frequency scaling >> CPU Frequency scaling
 CONFIG_CPU_FREQ                                 policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 CONFIG_CPU_FREQ_STAT                            policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
+CONFIG_CPU_FREQ_TIMES                           policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 CONFIG_CPU_FREQ_GOV_PERFORMANCE                 policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 CONFIG_CPU_FREQ_GOV_POWERSAVE                   policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 CONFIG_CPU_FREQ_GOV_USERSPACE                   policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
@@ -13251,6 +13254,7 @@ CONFIG_CPU_FREQ_GOV_ONDEMAND                    policy<{'amd64': 'y', 'arm64': '
 CONFIG_CPU_FREQ_GOV_CONSERVATIVE                policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 CONFIG_CPU_FREQ_GOV_SCHEDUTIL                   policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y'}>
 CONFIG_X86_INTEL_PSTATE                         policy<{'amd64': 'y'}>
+CONFIG_X86_AMD_PSTATE                           policy<{'amd64': 'y'}>
 CONFIG_X86_PCC_CPUFREQ                          policy<{'amd64': 'y'}>
 CONFIG_X86_SPEEDSTEP_CENTRINO                   policy<{'amd64': 'y'}>
 CONFIG_X86_P4_CLOCKMOD                          policy<{'amd64': 'm'}>
@@ -13737,7 +13741,7 @@ CONFIG_PPC_64K_PAGES                            policy<{'ppc64el': 'y'}>
 CONFIG_PERF_EVENTS_INTEL_UNCORE                 policy<{'amd64': 'y'}>
 CONFIG_PERF_EVENTS_INTEL_RAPL                   policy<{'amd64': 'm'}>
 CONFIG_PERF_EVENTS_INTEL_CSTATE                 policy<{'amd64': 'm'}>
-CONFIG_PERF_EVENTS_AMD_POWER                    policy<{'amd64': 'n'}>
+CONFIG_PERF_EVENTS_AMD_POWER                    policy<{'amd64': 'm'}>
 CONFIG_PERF_EVENTS_AMD_UNCORE                   policy<{'amd64': 'm'}>
 
 # Menu: Processor type and features >> Physical address space size >> Architecture: arm64
@@ -13820,8 +13824,9 @@ CONFIG_X86_INTEL_TSX_MODE_AUTO                  policy<{'amd64': 'n'}>
 
 # Menu: Processor type and features >> Timer frequency
 CONFIG_HZ_100                                   policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'y'}>
-CONFIG_HZ_250                                   policy<{'amd64-generic': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'n'}>
+CONFIG_HZ_250                                   policy<{'amd64-generic': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_HZ_300                                   policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
+CONFIG_HZ_858                                   policy<{'amd64-generic': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'n'}>
 CONFIG_HZ_1000                                  policy<{'amd64-generic': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 
 # Menu: Processor type and features >> Timer frequency >> Architecture: arm
@@ -13945,7 +13950,7 @@ CONFIG_IMA                                      policy<{'amd64': 'y', 'arm64': '
 CONFIG_IMA_KEXEC                                policy<{'arm64': 'y', 'ppc64el': 'y'}>
 CONFIG_IMA_WRITE_POLICY                         policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_IMA_READ_POLICY                          policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'y', 's390x': 'n'}>
-CONFIG_IMA_DISABLE_HTABLE                       policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
+CONFIG_IMA_DISABLE_HTABLE                       policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 #
 CONFIG_IMA                                      mark<ENFORCED> note<LP:1643652>
 CONFIG_IMA_KEXEC                                mark<ENFORCED> note<LP:1643652>
