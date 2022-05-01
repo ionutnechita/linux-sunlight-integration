@@ -22,4 +22,4 @@ do_tools_common = true
 do_tools_acpidbg = true
 do_zfs		= false
 do_v4l2loopback	= false
-do_odm_drivers  = true
+do_odm_drivers  = false

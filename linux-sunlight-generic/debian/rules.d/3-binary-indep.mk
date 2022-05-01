@@ -107,6 +107,7 @@ ifeq ($(do_tools_common),true)
 	install -d $(toolsbin)
 	install -d $(toolssbin)
 	install -d $(toolsman)/man1
+	install -d $(toolsman)/man2
 	install -d $(toolsman)/man8
 	install -d $(toolsbashcomp)
 
@@ -117,7 +118,7 @@ ifeq ($(do_tools_common),true)
 	install -m755 debian/tools/generic $(toolsbin)/cpupower
 	install -m644 $(CURDIR)/tools/power/cpupower/man/*.1 $(toolsman)/man1/
 
-	install -m755 debian/tools/generic $(toolsbin)/perf
+	install -m755 debian/tools/generic $(toolsbin)/perf_5.15
 
 	install -m755 debian/tools/generic $(toolssbin)/bpftool
 	make -C $(builddir)/tools/tools/bpf/bpftool doc
@@ -131,7 +132,7 @@ ifeq ($(do_tools_common),true)
 
 	cd $(builddir)/tools/tools/perf && make man
 	install -m644 $(builddir)/tools/tools/perf/Documentation/*.1 \
-		$(toolsman)/man1
+		$(toolsman)/man2
 
 	install -m644 $(CURDIR)/tools/power/x86/x86_energy_perf_policy/*.8 $(toolsman)/man8
 	install -m644 $(CURDIR)/tools/power/x86/turbostat/*.8 $(toolsman)/man8
