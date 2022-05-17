@@ -87,7 +87,7 @@ abi_release	:= $(release)-$(abinum)
 
 uploadnum	:= $(shell echo $(revision) | sed -r -e 's/[^\+~]*\.([^\.~]+(~.*)?(\+.*)?$$)/\1/')
 ifneq ($(full_build),false)
-  uploadnum	:= $(uploadnum)-Ubuntu
+  uploadnum	:= $(uploadnum)-Sunlight
 endif
 
 # XXX: linux-libc-dev got bumped to -803.N inadvertantly by a ti-omap4 upload
@@ -264,6 +264,7 @@ kmake = make ARCH=$(build_arch) \
 	KBUILD_BUILD_VERSION="$(uploadnum)" \
 	LOCALVERSION= localver-extra= \
 	CFLAGS_MODULE="-DPKG_ABI=$(abinum)" \
+	KBUILD_BUILD_VERSION_TIMESTAMP="SUNLIGHT $(git rev-parse --short HEAD) $(date +%Y%m%d%H%M%S)" \
 	PYTHON=$(PYTHON)
 ifneq ($(LOCAL_ENV_CC),)
 kmake += CC="$(LOCAL_ENV_CC)" DISTCC_HOSTS="$(LOCAL_ENV_DISTCC_HOSTS)"
