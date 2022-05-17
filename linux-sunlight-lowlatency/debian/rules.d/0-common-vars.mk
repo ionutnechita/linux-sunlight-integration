@@ -264,7 +264,7 @@ kmake = make ARCH=$(build_arch) \
 	KBUILD_BUILD_VERSION="$(uploadnum)" \
 	LOCALVERSION= localver-extra= \
 	CFLAGS_MODULE="-DPKG_ABI=$(abinum)" \
-	KBUILD_BUILD_VERSION_TIMESTAMP="SUNLIGHT $(git rev-parse --short HEAD) $(date +%Y%m%d%H%M%S)" \
+	KBUILD_BUILD_VERSION_TIMESTAMP="SUNLIGHT $(shell git rev-parse --short HEAD) $(shell date +%Y%m%d%H%M%S)" \
 	PYTHON=$(PYTHON)
 ifneq ($(LOCAL_ENV_CC),)
 kmake += CC="$(LOCAL_ENV_CC)" DISTCC_HOSTS="$(LOCAL_ENV_DISTCC_HOSTS)"
