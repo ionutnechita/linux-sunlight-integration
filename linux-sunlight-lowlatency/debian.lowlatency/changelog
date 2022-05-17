@@ -1,6 +1,12 @@
-linux (5.15.0-32.32) 3.0; urgency=medium
+linux (5.15.0-36.36) Sl1; urgency=medium
 
-  * 3.0/linux: 5.15.0-32.32
+  * Sl1/linux: 5.15.0-36.36
+
+ -- Ionut Nechita <ionut_n2001@yahoo.com>  Tue, 17 May 2022 08:14:50 +0300
+
+linux (5.15.0-32.32) Sl1; urgency=medium
+
+  * Sl1/linux: 5.15.0-32.32
 
  -- Ionut Nechita <ionut_n2001@yahoo.com>  Wed, 06 Apr 2022 08:15:50 +0200
 
