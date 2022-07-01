@@ -1,3 +1,9 @@
+linux-lowlatency (5.18.0-1007.8) SL518; urgency=medium
+
+  * upstream 5.18.8 rebase
+
+ -- Ionut Nechita <ionut_n2001@yahoo.com>  Thu, 30 Jun 2022 08:17:11 +0200
+
 linux-lowlatency (5.18.0-1007.7) kinetic; urgency=medium
 
   * kinetic/linux-lowlatency: 5.18.0-1007.7 -proposed tracker (LP: #1979630)
