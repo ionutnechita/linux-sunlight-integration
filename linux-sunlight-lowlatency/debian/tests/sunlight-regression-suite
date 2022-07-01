@@ -7,7 +7,7 @@ case $source in
     linux|linux-unstable|linux-hwe*|linux-kvm|linux-oem)
 	;;
     *)
-	echo "ubuntu-regression-suite is pointless, if one cannot boot the kernel"
+	echo "sunlight-regression-suite is pointless, if one cannot boot the kernel"
 	exit 77
 	;;
 esac
@@ -23,7 +23,7 @@ do
     esac
 done
 if [ -n "$ADT_TEST_TRIGGERS" ] && [ "$have_meta" -eq 0 ]; then
-    echo "ubuntu-regression-suite is not requested, as there is no linux-meta trigger"
+    echo "sunlight-regression-suite is not requested, as there is no linux-meta trigger"
     exit 77
 fi
 
@@ -41,5 +41,5 @@ if [ "$sver" != "$rver" ]; then
     exit 1
 fi
 
-git clone git://kernel.ubuntu.com/ubuntu/kernel-testing
+git clone git://kernel.sunlight.com/sunlight/kernel-testing
 kernel-testing/run-dep8-tests

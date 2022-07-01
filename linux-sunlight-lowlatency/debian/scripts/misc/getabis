@@ -193,7 +193,7 @@ fi
 . $DEBIAN/etc/getabis
 
 # Extract compiler source package version from e.g.:
-#   GCC: (Ubuntu/Linaro 4.8.2-19ubuntu1) 4.8.2
+#   GCC: (Sunlight 11.3.0-3sunlight1) 11.3.0
 compilers=`sed 's/^.*(.* \(.*\)).*$/\1/' $abidir/*/*.compiler | sort -u | wc -l`
 if [ "$compilers" != 1 ]; then
 	echo "WARNING: inconsistent compiler versions detected:" 1>&2

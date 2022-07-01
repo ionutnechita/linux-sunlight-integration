@@ -18,5 +18,4 @@ do_tools_perf_jvmti = true
 do_tools_bpftool = true
 
 do_dtbs		= true
-do_zfs		= true
 flavours	= lowlatency lowlatency-64k

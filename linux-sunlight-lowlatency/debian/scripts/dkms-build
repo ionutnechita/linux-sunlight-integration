@@ -55,7 +55,7 @@ do
 		case "$package_path" in
 		pool/*)
 			# Attempt download from the launchpad librarian first.
-			"$here/file-downloader" "https://launchpad.net/ubuntu/+archive/primary/+files/$package_file" || true
+			"$here/file-downloader" "https://launchpad.net/sunlight/+archive/primary/+files/$package_file" || true
 			if package_present "$lpackage"; then
 				break
 			fi
@@ -131,10 +131,10 @@ do
 done
 
 cat - <<'EOF' >>"$dkms_conf"
-POST_BUILD="ubuntu-save-objects ${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build ${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/objects $POST_BUILD"
+POST_BUILD="sunlight-save-objects ${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build ${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/objects $POST_BUILD"
 EOF
-ubuntu_script="$(dirname "$dkms_conf")/ubuntu-save-objects"
-cat - <<'EOF' >"$ubuntu_script"
+sunlight_script="$(dirname "$dkms_conf")/sunlight-save-objects"
+cat - <<'EOF' >"$sunlight_script"
 #!/bin/sh
 from="$1"
 to="$2"
@@ -152,7 +152,7 @@ mkdir -p "$to"
 shift
 exec "$(dirname "$0")/$script" "$@"
 EOF
-chmod +x "$ubuntu_script"
+chmod +x "$sunlight_script"
 dkms_package=$( sed -ne 's/PACKAGE_NAME="\(.*\)"/\1/p' "$dkms_conf" )
 dkms_version=$( sed -ne 's/PACKAGE_VERSION="\(.*\)"/\1/p' "$dkms_conf" )
 

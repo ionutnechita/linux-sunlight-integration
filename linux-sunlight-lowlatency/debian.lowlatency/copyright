@@ -1,14 +1,14 @@
-This is the Ubuntu prepackaged version of the Linux kernel.
+This is the Sunlight prepackaged version of the Linux kernel.
 Linux was written by Linus Torvalds <Linus.Torvalds@cs.Helsinki.FI>
 and others.
 
-This package was put together by the Ubuntu Kernel Team, from
+This package was put together by the Sunlight Kernel Team, from
 sources retrieved from upstream linux git.
 The sources may be found at most Linux ftp sites, including 
 ftp://ftp.kernel.org/pub/linux/kernel/
 
 This package is currently maintained by the
-Ubuntu Kernel Team <ubuntu-kernel@lists.ubuntu.com>
+Sunlight Kernel Team <ionut_n2001@yahoo.com>
 
 Linux is copyrighted by Linus Torvalds and others.
 
@@ -25,5 +25,5 @@ Linux is copyrighted by Linus Torvalds and others.
    along with this program; if not, write to the Free Software
    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-On Ubuntu Linux systems, the complete text of the GNU General
+On Sunlight Linux systems, the complete text of the GNU General
 Public License v2 can be found in `/usr/share/common-licenses/GPL-2'.

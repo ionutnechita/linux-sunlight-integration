@@ -50,7 +50,7 @@ Optional arguments:
 
 Environment variable:
   CRANKY_MAILENFORCE    Regular expression used to validate \$DEBEMAIL. If not
-                        set, it defaults to "@canonical.com$".
+                        set, it defaults to "@yahoo.com$".
 
 Examples:
   Simply start a new release (that will fetch the ABI files from the
@@ -95,7 +95,7 @@ alias chroot_run='run ${CHROOT:-}'
 
 # Check DEBEMAIL (used to create the new changelog stanza):
 DEBEMAIL="${DEBEMAIL:-}"
-CRANKY_MAILENFORCE="${CRANKY_MAILENFORCE:-@canonical.com\$}"
+CRANKY_MAILENFORCE="${CRANKY_MAILENFORCE:-@yahoo.com\$}"
 if [ -z "$DEBEMAIL" ] || ! echo "$DEBEMAIL" | grep -qE "$CRANKY_MAILENFORCE"; then
 	echo "DEBEMAIL is unset, or does not contain \"$CRANKY_MAILENFORCE\": $DEBEMAIL" >&2
 	exit 1

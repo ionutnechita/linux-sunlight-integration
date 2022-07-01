@@ -96,8 +96,8 @@ fi
 #
 MASTER_COMMIT=$(git log --pretty=one "${LOCAL_BRANCH}" "${DEBIAN_MASTER}" | \
     awk '
-	/Ubuntu-/ {
-		if (match($0, /UBUNTU: Ubuntu-/)) {
+	/Sunlight-/ {
+		if (match($0, /SUNLIGHT: Sunlight-/)) {
 				print $1
 				exit
                         }
@@ -109,8 +109,8 @@ MASTER_COMMIT=$(git log --pretty=one "${LOCAL_BRANCH}" "${DEBIAN_MASTER}" | \
 #
 BASE_COMMIT=$(git log --pretty=one "${DEBIAN_MASTER}" | \
     awk '
-	/Ubuntu-/ {
-		if (match($0, /UBUNTU: Ubuntu-/)) {
+	/Sunlight-/ {
+		if (match($0, /SUNLIGHT: Sunlight-/)) {
 				print $1
 				exit
                         }
@@ -129,8 +129,8 @@ if [ -z "${MASTER_COMMIT}" ] || [ -z "${BASE_COMMIT}" ]; then
 	exit 1
 fi
 
-MASTER_VERSION=$(git show --format=%s -s "$MASTER_COMMIT" | sed 's/^UBUNTU: //')
-BASE_VERSION=$(git show --format=%s -s "$BASE_COMMIT" | sed 's/^UBUNTU: //')
+MASTER_VERSION=$(git show --format=%s -s "$MASTER_COMMIT" | sed 's/^SUNLIGHT: //')
+BASE_VERSION=$(git show --format=%s -s "$BASE_COMMIT" | sed 's/^SUNLIGHT: //')
 echo "Rebase still needed between $BASE_VERSION and $MASTER_VERSION."
 
 if [ "${DRY_RUN}" ]; then

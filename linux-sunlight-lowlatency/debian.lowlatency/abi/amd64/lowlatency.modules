@@ -2070,7 +2070,6 @@ ibmasr
 ibmpex
 ice
 ichxrom
-icp
 icp10100
 icp_multi
 icplus
@@ -5113,7 +5112,6 @@ spi-zynqmp-gqspi
 spi_ks8995
 spidev
 spinand
-spl
 spmi
 sprd_serial
 sps30
@@ -5673,7 +5671,6 @@ v4l2-flash-led-class
 v4l2-fwnode
 v4l2-mem2mem
 v4l2-tpg
-v4l2loopback
 vboxguest
 vboxsf
 vboxvideo
@@ -6056,15 +6053,12 @@ yurex
 z3fold
 zatm
 zaurus
-zavl
-zcommon
 zd1201
 zd1211rw
 zd1301
 zd1301_demod
 zet6223
 zforce_ts
-zfs
 zhenhua
 ziirave_wdt
 zinitix
@@ -6072,8 +6066,6 @@ zl10036
 zl10039
 zl10353
 zl6100
-zlua
-znvpair
 zonefs
 zopt2201
 zpa2326
@@ -6084,5 +6076,3 @@ zr364xx
 zram
 zstd
 zstd_compress
-zunicode
-zzstd

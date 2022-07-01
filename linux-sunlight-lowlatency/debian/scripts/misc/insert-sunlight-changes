@@ -47,7 +47,7 @@ while (<CHG>) {
 			$output = 1;
 		}
 		if ($output) {
-			push(@changes, "\n  [ Ubuntu: $1 ]\n\n");
+			push(@changes, "\n  [ Sunlight: $1 ]\n\n");
 			next;
 		}
 	}

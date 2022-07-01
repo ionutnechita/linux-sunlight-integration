@@ -3,7 +3,7 @@
 #
 # Find config variables that might be able to transition from =y to =m
 #
-# Example: debian/scripts/misc/tristate.sh debian.master/config/config.common.ubuntu
+# Example: debian/scripts/misc/tristate.sh debian.master/config/config.common.sunlight
 #
 
 KC=Kconfig.tmp

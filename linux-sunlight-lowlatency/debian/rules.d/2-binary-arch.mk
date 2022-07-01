@@ -27,13 +27,10 @@ $(stampdir)/stamp-prepare-tree-%: target_flavour = $*
 $(stampdir)/stamp-prepare-tree-%: $(commonconfdir)/config.common.$(family) $(archconfdir)/config.common.$(arch) $(archconfdir)/config.flavour.% debian/scripts/fix-filenames
 	@echo Debug: $@
 	install -d $(builddir)/build-$*
-	touch $(builddir)/build-$*/ubuntu-build
+	touch $(builddir)/build-$*/sunlight-build
 	[ "$(do_full_source)" != 'true' ] && true || \
 		rsync -a --exclude debian --exclude debian.lowlatency --exclude $(DEBIAN) * $(builddir)/build-$*
-	cat $(wordlist 1,3,$^) | sed -e 's/.*CONFIG_VERSION_SIGNATURE.*/CONFIG_VERSION_SIGNATURE="Ubuntu $(release)-$(revision)-$* $(raw_kernelversion)"/' > $(builddir)/build-$*/.config
-	[ "$(do_odm_drivers)" = 'true' ] && true || \
-		sed -ie 's/.*CONFIG_UBUNTU_ODM_DRIVERS.*/# CONFIG_UBUNTU_ODM_DRIVERS is not set/' \
-		    $(builddir)/build-$*/.config
+	cat $(wordlist 1,3,$^) | sed -e 's/.*CONFIG_VERSION_SIGNATURE.*/CONFIG_VERSION_SIGNATURE="Sunlight $(release)-$(revision)-$* $(raw_kernelversion)"/' > $(builddir)/build-$*/.config
 	find $(builddir)/build-$* -name "*.ko" | xargs rm -f
 	$(build_cd) $(kmake) $(build_O) -j1 syncconfig prepare scripts
 	touch $@
@@ -327,8 +324,8 @@ endif
 	# Copy over the compilation version.
 	cp "$(builddir)/build-$*/include/generated/compile.h" \
 		"$(hdrdir)/include/generated/compile.h"
-	# Add UTS_UBUNTU_RELEASE_ABI since UTS_RELEASE is difficult to parse.
-	echo "#define UTS_UBUNTU_RELEASE_ABI $(abinum)" >> $(hdrdir)/include/generated/utsrelease.h
+	# Add UTS_SUNLIGHT_RELEASE_ABI since UTS_RELEASE is difficult to parse.
+	echo "#define UTS_SUNLIGHT_RELEASE_ABI $(abinum)" >> $(hdrdir)/include/generated/utsrelease.h
 	# powerpc kernel arch seems to need some .o files for external module linking. Add them in.
 ifeq ($(build_arch),powerpc)
 	mkdir -p $(hdrdir)/arch/powerpc/lib
@@ -337,7 +334,7 @@ endif
 	# Copy over scripts/module.lds for building external modules
 	cp $(builddir)/build-$*/scripts/module.lds $(hdrdir)/scripts
 	# Copy over the new retpoline extractor.
-	cp scripts/ubuntu-retpoline-extract-one $(hdrdir)/scripts
+	cp scripts/sunlight-retpoline-extract-one $(hdrdir)/scripts
 	# Script to symlink everything up
 	$(SHELL) $(DROOT)/scripts/link-headers "$(hdrdir)" "$(indeppkg)" "$*"
 	# The build symlink
@@ -660,8 +657,7 @@ ifneq ($(skipdbg),true)
 	# Hokay...here's where we do a little twiddling...
 	# Renaming the debug package prevents it from getting into
 	# the primary archive, and therefore prevents this very large
-	# package from being mirrored. It is instead, through some
-	# archive admin hackery, copied to http://ddebs.ubuntu.com.
+	# package from being mirrored.
 	#
 	mv ../$(dbgpkg)_$(release)-$(revision)_$(arch).deb \
 		../$(dbgpkg)_$(release)-$(revision)_$(arch).ddeb

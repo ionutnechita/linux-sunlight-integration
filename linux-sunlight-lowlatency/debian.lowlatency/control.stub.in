@@ -1,7 +1,7 @@
 Source: SRCPKGNAME
 Section: devel
 Priority: optional
-Maintainer: Ubuntu Kernel Team <kernel-team@lists.ubuntu.com>
+Maintainer: Sunlight Kernel Team <ionut_n2001@yahoo.com>
 Standards-Version: 3.9.4.0
 Build-Depends:
  debhelper-compat (= 10),
@@ -55,7 +55,7 @@ Build-Depends-Indep:
  fonts-noto-cjk <!stage1>,
  latexmk <!stage1>,
  librsvg2-bin <!stage1>,
-Vcs-Git: git://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/=SERIES=
+Vcs-Git: https://github.com/ionutnechita/linux-sunlight-integration/tree/5.18/linux-sunlight-lowlatency
 XS-Testsuite: autopkgtest
 
 Package: SRCPKGNAME-headers-PKGVER-ABINUM

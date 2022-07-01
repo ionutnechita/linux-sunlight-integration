@@ -21,9 +21,9 @@ help:
 	@echo
 	@echo "  diffupstream    : Diff stock kernel code against upstream (git)"
 	@echo
-	@echo "  compileselftests : Only compile the selftests listed on ubuntu_selftests variable"
+	@echo "  compileselftests : Only compile the selftests listed on sunlight_selftests variable"
 	@echo
-	@echo "  runselftests    : Run the selftests listed on ubuntu_selftests variable"
+	@echo "  runselftests    : Run the selftests listed on sunlight_selftests variable"
 	@echo
 	@echo "  help            : If you are kernel hacking, you need the professional"
 	@echo "                    version of this"
@@ -61,9 +61,9 @@ printenv:
 	@echo "skipabi           = $(skipabi)"
 	@echo "skipmodule        = $(skipmodule)"
 	@echo "skipdbg           = $(skipdbg)"
-	@echo "ubuntu_log_opts   = $(ubuntu_log_opts)"
+	@echo "sunlight_log_opts   = $(sunlight_log_opts)"
 	@echo "CONCURRENCY_LEVEL = $(CONCURRENCY_LEVEL)"
-	@echo "ubuntu_selftests  = $(ubuntu_selftests)"
+	@echo "sunlight_selftests  = $(sunlight_selftests)"
 	@echo "bin package name  = $(bin_pkg_name)"
 	@echo "hdr package name  = $(hdrs_pkg_name)"
 	@echo "doc package name  = $(doc_pkg_name)"
@@ -76,7 +76,6 @@ printenv:
 	@echo "do_flavour_header_package = $(do_flavour_header_package)"
 	@echo "do_common_headers_indep   = $(do_common_headers_indep)"
 	@echo "do_full_source            = $(do_full_source)"
-	@echo "do_odm_drivers            = $(do_odm_drivers)"
 	@echo "do_tools                  = $(do_tools)"
 	@echo "do_any_tools              = $(do_any_tools)"
 	@echo "do_linux_tools            = $(do_linux_tools)"
@@ -102,14 +101,14 @@ printenv:
 
 printchanges:
 	@baseCommit=$$(git log --pretty=format:'%H %s' | \
-		gawk '/UBUNTU: '".*Ubuntu-.*`echo $(prev_fullver) | sed 's/+/\\\\+/'`"'(~.*)?$$/ { print $$1; exit }'); \
+		gawk '/SUNLIGHT: '".*Sunlight-.*`echo $(prev_fullver) | sed 's/+/\\\\+/'`"'(~.*)?$$/ { print $$1; exit }'); \
 	if [ -z "$$baseCommit" ]; then \
 		echo "WARNING: couldn't find a commit for the previous version. Using the lastest one." >&2; \
 		baseCommit=$$(git log --pretty=format:'%H %s' | \
-			gawk '/UBUNTU:\s*Ubuntu-.*$$/ { print $$1; exit }'); \
+			gawk '/SUNLIGHT:\s*Sunlight-.*$$/ { print $$1; exit }'); \
 	fi; \
 	git log "$$baseCommit"..HEAD | \
-	$(DROOT)/scripts/misc/git-ubuntu-log $(ubuntu_log_opts)
+	$(DROOT)/scripts/misc/git-sunlight-log $(sunlight_log_opts)
 
 insertchanges: autoreconstruct finalchecks
 	$(DROOT)/scripts/misc/insert-changes $(DROOT) $(DEBIAN)
@@ -130,7 +129,7 @@ endif
 	$(DROOT)/scripts/misc/final-checks "$(DEBIAN)" "$(prev_fullver)"
 
 diffupstream:
-	@git diff-tree -p refs/remotes/linux-2.6/master..HEAD $(shell ls | grep -vE '^(ubuntu|$(DEBIAN)|\.git.*)')
+	@git diff-tree -p refs/remotes/linux-2.6/master..HEAD $(shell ls | grep -vE '^(sunlight|$(DEBIAN)|\.git.*)')
 
 startnewrelease:
 	dh_testdir
@@ -165,9 +164,9 @@ startnewrelease:
 
 compileselftests:
 	# a loop is needed here to fail on errors
-	for test in $(ubuntu_selftests); do \
+	for test in $(sunlight_selftests); do \
 		$(kmake) -C tools/testing/selftests TARGETS="$$test"; \
 	done;
 
 runselftests:
-	$(kmake) -C tools/testing/selftests TARGETS="$(ubuntu_selftests)" run_tests
+	$(kmake) -C tools/testing/selftests TARGETS="$(sunlight_selftests)" run_tests

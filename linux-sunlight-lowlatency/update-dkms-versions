@@ -59,14 +59,6 @@ if [ -z "$remote_repo" ]; then
 	esac
 fi
 case "$remote_repo" in
-security)
-	remote_repo='ssh+git://git.launchpad.net/~canonical-kernel-security-team/canonical-kernel-private/+git/kernel-versions'
-	remote_name='security'
-	;;
-main)
-	remote_repo='git://git.launchpad.net/~canonical-kernel/+git/kernel-versions'
-	remote_name='main'
-	;;
 *)
 	remote_name='adhoc'
 	;;
@@ -171,7 +163,7 @@ mv "debian/dkms-versions.new" "debian/dkms-versions"
 
 thing="debian/dkms-versions"
 if ! git diff --exit-code -- "$thing" >/dev/null; then
-	git commit -m "UBUNTU: $thing -- update from kernel-versions ($git_base)" \
+	git commit -m "SUNLIGHT: $thing -- update from kernel-versions ($git_base)" \
 		-m "BugLink: https://bugs.launchpad.net/bugs/1786013" \
 		-s -- "$thing"
 else

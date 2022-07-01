@@ -1,2 +1,2 @@
-archs="amd64 armhf arm64 ppc64el s390x"
-family='ubuntu'
+archs="amd64"
+family="sunlight"

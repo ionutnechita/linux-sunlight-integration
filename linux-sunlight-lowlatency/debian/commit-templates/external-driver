@@ -1,6 +1,6 @@
-# Ubuntu external driver commit.
+# Sunlight external driver commit.
 #
-# NOTE: This gets reformatted for README.Ubuntu-External-Drivers and
+# NOTE: This gets reformatted for README.Sunlight-External-Drivers and
 # debian/changelog.
 #
 # This is only needed when a driver is added, updated or removed. It is
@@ -9,9 +9,9 @@
 #
 # Removing: yes
 #
-# to the commit, and you can remove all other tags (except UBUNTU:).
+# to the commit, and you can remove all other tags (except SUNLIGHT:).
 #
-UBUNTU: 
+SUNLIGHT: 
 
 ExternalDriver: 
 Description:

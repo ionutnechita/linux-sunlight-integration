@@ -24,12 +24,12 @@ def add_entry(entry):
         combo = sorted(combo)
 
         if len(combo) == 0:
-            if entry.get('subject', "").startswith('UBUNTU'):
+            if entry.get('subject', "").startswith('SUNLIGHT'):
                 combo = '__packaging__'
             else:
                 combo = '__mainline__'
         else:
-            if entry.get('subject', "") == 'UBUNTU: link-to-tracker: update tracking bug':
+            if entry.get('subject', "") == 'SUNLIGHT: link-to-tracker: update tracking bug':
                 # Construct a key with '__trackingbug__' on the first position
                 # and the tracking bug number afterwards
                 combo.insert(0, '__trackingbug__')
@@ -89,7 +89,7 @@ entries.reverse()
 
 # Go through the entries and clear out authors for upstream commits.
 for entry in entries:
-    if entry['subject'].startswith('UBUNTU:'):
+    if entry['subject'].startswith('SUNLIGHT:'):
         entry['subject'] = entry['subject'][7:].strip()
     else:
         del entry['author']
@@ -101,7 +101,7 @@ keys.append('__mainline__')
 emit_nl = False
 for key in keys:
     if key == '__packaging__':
-        title_set = ['Miscellaneous Ubuntu changes']
+        title_set = ['Miscellaneous Sunlight changes']
     elif key == '__mainline__':
         title_set = ['Miscellaneous upstream changes']
     else:

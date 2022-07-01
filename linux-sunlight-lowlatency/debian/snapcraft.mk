@@ -8,4 +8,4 @@ else
   arch := $(ARCH)
 endif
 config:
-	cat debian.$(branch)/config/config.common.ubuntu debian.$(branch)/config/$(arch)/config.common.$(arch) debian.$(branch)/config/$(arch)/config.flavour.$(flavour) >.config
+	cat debian.$(branch)/config/config.common.sunlight debian.$(branch)/config/$(arch)/config.common.$(arch) debian.$(branch)/config/$(arch)/config.flavour.$(flavour) >.config

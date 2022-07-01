@@ -3,7 +3,7 @@
 AUFS=aufs4-standalone
 
 #
-# Before you run this be sure you've removed or reverted the 'UBUNTU: SAUCE: AUFS" patch.
+# Before you run this be sure you've removed or reverted the 'SUNLIGHT: SAUCE: AUFS" patch.
 #
 #
 # Make sure the current working directory is at the top of the
@@ -47,4 +47,4 @@ git add mm/prfile.c
 git add -u
 find . -name "*.orig" | xargs rm
 find . |grep aufs | xargs git add
-git commit -s -m"UBUNTU: SAUCE: AUFS"
+git commit -s -m"SUNLIGHT: SAUCE: AUFS"

@@ -345,14 +345,14 @@ CONFIG_MODULE_SIG_KEY                           policy<{'amd64': '"certs/signing
 CONFIG_SYSTEM_BLACKLIST_KEYRING                 policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_SYSTEM_BLACKLIST_HASH_LIST               policy<{'amd64': '""', 'arm64': '""', 'armhf': '""', 'ppc64el': '""', 's390x': '""'}>
 CONFIG_SYSTEM_REVOCATION_LIST                   policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_SYSTEM_REVOCATION_KEYS                   policy<{'amd64': '"debian/canonical-revoked-certs.pem"', 'arm64': '"debian/canonical-revoked-certs.pem"', 'armhf': '"debian/canonical-revoked-certs.pem"', 'ppc64el': '"debian/canonical-revoked-certs.pem"', 'riscv64': '"debian/canonical-revoked-certs.pem"', 's390x': '"debian/canonical-revoked-certs.pem"'}>
+CONFIG_SYSTEM_REVOCATION_KEYS                   policy<{'amd64': '"debian/sunlight-revoked-certs.pem"', 'arm64': '"debian/sunlight-revoked-certs.pem"', 'armhf': '"debian/sunlight-revoked-certs.pem"', 'ppc64el': '"debian/sunlight-revoked-certs.pem"', 'riscv64': '"debian/sunlight-revoked-certs.pem"', 's390x': '"debian/sunlight-revoked-certs.pem"'}>
 #
 CONFIG_SYSTEM_BLACKLIST_KEYRING                 mark<ENFORCED>
 CONFIG_SYSTEM_REVOCATION_KEYS                   mark<ENFORCED>
 
 # Menu: Cryptographic API >> Certificates for signature checking >> Provide system-wide ring of trusted keys
 CONFIG_SYSTEM_TRUSTED_KEYRING                   policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
-CONFIG_SYSTEM_TRUSTED_KEYS                      policy<{'amd64': '"debian/canonical-certs.pem"', 'arm64': '"debian/canonical-certs.pem"', 'armhf': '"debian/canonical-certs.pem"', 'ppc64el': '"debian/canonical-certs.pem"', 'riscv64': '"debian/canonical-certs.pem"', 's390x': '"debian/canonical-certs.pem"'}>
+CONFIG_SYSTEM_TRUSTED_KEYS                      policy<{'amd64': '"debian/sunlight-certs.pem"', 'arm64': '"debian/sunlight-certs.pem"', 'armhf': '"debian/sunlight-certs.pem"', 'ppc64el': '"debian/sunlight-certs.pem"', 'riscv64': '"debian/sunlight-certs.pem"', 's390x': '"debian/sunlight-certs.pem"'}>
 CONFIG_SYSTEM_EXTRA_CERTIFICATE                 policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
 CONFIG_SYSTEM_EXTRA_CERTIFICATE_SIZE            policy<{'amd64': '4096', 'arm64': '4096', 'armhf': '4096', 'ppc64el': '4096', 's390x': '4096'}>
 CONFIG_SECONDARY_TRUSTED_KEYRING                policy<{'amd64': 'y', 'arm64': 'y', 'armhf': 'y', 'ppc64el': 'y', 's390x': 'y'}>
@@ -11803,7 +11803,7 @@ CONFIG_DEBUG_WQ_FORCE_RR_CPU                    policy<{'amd64': 'n', 'arm64': '
 CONFIG_CPU_HOTPLUG_STATE_CONTROL                policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 CONFIG_LATENCYTOP                               policy<{'amd64-generic': 'n', 'amd64-lowlatency': 'y', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
 #
-CONFIG_LATENCYTOP                               mark<ENFORCED> note<https://lists.ubuntu.com/archives/kernel-team/2014-July/045006.html, LP#1655986>
+CONFIG_LATENCYTOP                               mark<ENFORCED>
 
 # Menu: Kernel hacking >> Lock Debugging (spinlocks, mutexes, etc...)
 CONFIG_PROVE_LOCKING                            policy<{'amd64': 'n', 'arm64': 'n', 'armhf': 'n', 'ppc64el': 'n', 's390x': 'n'}>
@@ -14391,7 +14391,7 @@ CONFIG_OMAP3_SDRC_AC_TIMING                     policy<{'armhf-generic': 'n'}>
 # Menu: System Type >> TI OMAP1 specific features >> OMAP16xx Based System >> Architecture: arm
 CONFIG_MACH_OMAP_GENERIC                        policy<{'armhf': 'y'}>
 
-# Menu: Ubuntu Supplied Third-Party Device Drivers
+# Menu: Sunlight Supplied Third-Party Device Drivers
 CONFIG_HIO                                      policy<{'amd64': '-', 'arm64': '-', 'armhf': '-', 'ppc64el': '-', 's390x': '-'}>
 CONFIG_SUNLIGHT_HOST                            policy<{'amd64': 'm', 'arm64': 'm', 'armhf': 'm', 'ppc64el': 'm', 's390x': 'm'}>
 #

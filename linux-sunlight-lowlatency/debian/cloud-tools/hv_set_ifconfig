@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 # hv_set_ifconfig <config> -- take the hv_kvp_daemon generated configuration
-#                             file and apply it to the Ubuntu configuration.
+#                             file and apply it to the Sunlight configuration.
 #
 
 # CONFIG example:

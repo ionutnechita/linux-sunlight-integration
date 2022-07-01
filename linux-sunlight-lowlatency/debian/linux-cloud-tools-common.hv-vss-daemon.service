@@ -1,6 +1,6 @@
 # On Azure/Hyper-V systems start the hv_vss_daemon
 #
-# author "Andy Whitcroft <apw@canonical.com>"
+# author "Ionut Nechita <ionut_n2001@yahoo.com>"
 [Unit]
 Description=Hyper-V VSS Protocol Daemon
 ConditionVirtualization=microsoft

@@ -2,8 +2,8 @@
  * fix-filenames: find a specified pathname prefix and remove it from
  *                C strings.
  *
- * Copyright (C) 2018 Canonical Ltd.
- * Author: Andy Whitcroft <apw@canonical.com>
+ * Copyright (C) 2022 Sunlight Linux.
+ * Author: Ionut Nechita <ionut_n2001@yahoo.com>
  */
 #include <stdlib.h>
 #include <stdio.h>

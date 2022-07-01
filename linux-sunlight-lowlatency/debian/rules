@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 #
-# $(DEBIAN)/rules for Ubuntu linux
+# $(DEBIAN)/rules for Sunlight Linux
 #
 # Use this however you want, just give credit where credit is due.
 #
-# Copyright (c) 2007 Ben Collins <bcollins@ubuntu.com>
+# Copyright (c) 2022 Ionut Nechita <ionut_n2001@yahoo.com>
 #
 
 DEBIAN=$(shell awk -F= '($$1 == "DEBIAN") { print $$2 }' <debian/debian.env)
@@ -48,7 +48,6 @@ $(foreach _m,$(all_dkms_modules), \
 # Don't build tools in a cross compile environment.
 ifneq ($(DEB_HOST_ARCH),$(DEB_BUILD_ARCH))
 	do_tools=false
-	do_zfs=false
 endif
 
 # Are any of the kernel signing options enabled.
@@ -123,7 +122,7 @@ binary: binary-indep binary-arch
 
 build: build-arch build-indep
 
-clean: debian/control debian/canonical-certs.pem debian/canonical-revoked-certs.pem
+clean: debian/control debian/sunlight-certs.pem debian/sunlight-revoked-certs.pem
 	dh_testdir
 	dh_testroot
 	dh_clean
@@ -140,7 +139,7 @@ clean: debian/control debian/canonical-certs.pem debian/canonical-revoked-certs.
 	cp $(DEBIAN)/copyright debian/copyright
 
 	# Install the retpoline extractor.
-	cp $(DROOT)/scripts/retpoline-extract-one scripts/ubuntu-retpoline-extract-one
+	cp $(DROOT)/scripts/retpoline-extract-one scripts/sunlight-retpoline-extract-one
 
 	# If we have a reconstruct script use it.
 	[ -f $(DEBIAN)/reconstruct ] && bash $(DEBIAN)/reconstruct || true
@@ -152,7 +151,7 @@ clean: debian/control debian/canonical-certs.pem debian/canonical-revoked-certs.
 distclean: clean
 	rm -rf $(DROOT)/control debian/changelog \
 		debian/control debian/control.stub debian/copyright \
-		scripts/ubuntu-retpoline-extract-one
+		scripts/sunlight-retpoline-extract-one
 
 # Builds the image, arch headers and debug packages
 include $(DROOT)/rules.d/2-binary-arch.mk
@@ -207,7 +206,7 @@ $(DEBIAN)/control.stub: 				\
 debian/control: $(DEBIAN)/control.stub
 	cp $(DEBIAN)/control.stub debian/control
 
-debian/canonical-certs.pem: $(wildcard $(DROOT)/certs/*-all.pem) $(wildcard $(DROOT)/certs/*-$(arch).pem) $(wildcard $(DEBIAN)/certs/*-all.pem) $(wildcard $(DEBIAN)/certs/*-$(arch).pem)
+debian/sunlight-certs.pem: $(wildcard $(DROOT)/certs/*-all.pem) $(wildcard $(DROOT)/certs/*-$(arch).pem) $(wildcard $(DEBIAN)/certs/*-all.pem) $(wildcard $(DEBIAN)/certs/*-$(arch).pem)
 	for cert in $(sort $(notdir $^));					\
 	do									\
 		for dir in $(DEBIAN) $(DROOT);					\
@@ -219,7 +218,7 @@ debian/canonical-certs.pem: $(wildcard $(DROOT)/certs/*-all.pem) $(wildcard $(DR
 		done;								\
 	done >"$@"
 
-debian/canonical-revoked-certs.pem: $(wildcard $(DROOT)/revoked-certs/*-all.pem) $(wildcard $(DROOT)/revoked-certs/*-$(arch).pem) $(wildcard $(DEBIAN)/revoked-certs/*-all.pem) $(wildcard $(DEBIAN)/revoked-certs/*-$(arch).pem)
+debian/sunlight-revoked-certs.pem: $(wildcard $(DROOT)/revoked-certs/*-all.pem) $(wildcard $(DROOT)/revoked-certs/*-$(arch).pem) $(wildcard $(DEBIAN)/revoked-certs/*-all.pem) $(wildcard $(DEBIAN)/revoked-certs/*-$(arch).pem)
 	for cert in $(sort $(notdir $^));					\
 	do									\
 		for dir in $(DEBIAN) $(DROOT);					\

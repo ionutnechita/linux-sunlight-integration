@@ -31,7 +31,7 @@ upstream_version := $(shell sed -n 's/^VERSION = \(.*\)$$/\1/p' Makefile)
 upstream_patchlevel := $(shell sed -n 's/^PATCHLEVEL = \(.*\)$$/\1/p' Makefile)
 upstream_tag := "v$(upstream_version).$(upstream_patchlevel)"
 
-family=ubuntu
+family=sunlight
 
 # This is an internally used mechanism for the daily kernel builds. It
 # creates packages whose ABI is suffixed with a minimal representation of
@@ -39,7 +39,7 @@ family=ubuntu
 # uuidgen program,
 #
 # AUTOBUILD can also be used by anyone wanting to build a custom kernel
-# image, or rebuild the entire set of Ubuntu packages using custom patches
+# image, or rebuild the entire set of Sunlight packages using custom patches
 # or configs.
 AUTOBUILD=
 
@@ -55,10 +55,10 @@ abi_suffix = -$(gitverpre)$(gitverpost)
 endif
 
 ifneq ($(NOKERNLOG),)
-ubuntu_log_opts += --no-kern-log
+sunlight_log_opts += --no-kern-log
 endif
 ifneq ($(PRINTSHAS),)
-ubuntu_log_opts += --print-shas
+sunlight_log_opts += --print-shas
 endif
 
 # Get the kernels own extra version to be added to the release signature.
@@ -87,7 +87,7 @@ abi_release	:= $(release)-$(abinum)
 
 uploadnum	:= $(shell echo $(revision) | sed -r -e 's/[^\+~]*\.([^\.~]+(~.*)?(\+.*)?$$)/\1/')
 ifneq ($(full_build),false)
-  uploadnum	:= $(uploadnum)-Ubuntu
+  uploadnum	:= $(uploadnum)-Sunlight
 endif
 
 # XXX: linux-libc-dev got bumped to -803.N inadvertantly by a ti-omap4 upload
@@ -189,10 +189,6 @@ do_common_headers_indep=true
 # add a 'full source' mode
 do_full_source=false
 
-# Add an option to enable special drivers which should only be build when
-# explicitly enabled.
-do_odm_drivers=false
-
 # build tools
 ifneq ($(wildcard $(CURDIR)/tools),)
 	ifeq ($(do_tools),)
@@ -264,6 +260,7 @@ kmake = make ARCH=$(build_arch) \
 	KBUILD_BUILD_VERSION="$(uploadnum)" \
 	LOCALVERSION= localver-extra= \
 	CFLAGS_MODULE="-DPKG_ABI=$(abinum)" \
+	KBUILD_BUILD_VERSION_TIMESTAMP="SUNLIGHT $(shell git rev-parse --short HEAD) $(shell date +%Y%m%d%H%M%S)" \
 	PYTHON=$(PYTHON)
 ifneq ($(LOCAL_ENV_CC),)
 kmake += CC="$(LOCAL_ENV_CC)" DISTCC_HOSTS="$(LOCAL_ENV_DISTCC_HOSTS)"
@@ -283,8 +280,8 @@ LN = ln -sf
 custom_override = \
  $(shell if [ -n "$($(1)_$(2))" ]; then echo "$($(1)_$(2))"; else echo "$($(1))"; fi)
 
-# selftests that Ubuntu cares about
-ubuntu_selftests = breakpoints cpu-hotplug efivarfs memfd memory-hotplug mount net ptrace seccomp timers powerpc user ftrace
+# selftests that Sunlight cares about
+sunlight_selftests = breakpoints cpu-hotplug efivarfs memfd memory-hotplug mount net ptrace seccomp timers powerpc user ftrace
 
 # DKMS
 all_dkms_modules =
@@ -326,7 +323,7 @@ $(foreach _line,$(shell gawk '{ OFS = "!"; $$1 = $$1; print }' $(DROOT)/dkms-ver
   $(eval all_$(dkms_$(_m)_type)_dkms_modules += $(_m)) \
   $(if $(filter standalone,$(dkms_$(_m)_type)), \
     $(eval dkms_$(_m)_pkg_name = linux-modules-$(_m)-$(abi_release)) \
-    $(eval dkms_$(_m)_subdir = ubuntu) \
+    $(eval dkms_$(_m)_subdir = sunlight) \
     , \
     $(eval dkms_$(_m)_pkg_name = $(mods_pkg_name)) \
     $(eval dkms_$(_m)_subdir = kernel) \

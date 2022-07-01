@@ -82,7 +82,7 @@ for arch in $archs; do
 	flavourconfigs=$(cd $archconfdir && ls config.flavour.*)
 
 	# Merge configs
-	# We merge config.common.ubuntu + config.common.<arch> +
+	# We merge config.common.sunlight + config.common.<arch> +
 	# config.flavour.<flavour>
 
 	for config in $flavourconfigs; do
